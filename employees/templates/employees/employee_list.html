@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Сотрудники</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'employees/style_table.css' %}">
+
+</head>
+<body>
+<h1>Список сотрудников</h1>
+<a href="{% url 'employee_add' %}"> > Добавить нового сотрудника</a>
+<table>
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Email</th>
+        <th>Должность</th>
+        <th>Зарплата</th>
+        <th>Телефон</th>
+    </tr>
+    {% for emp in employees %}
+    <tr>
+        <td>{{ emp.first_name }}</td>
+        <td>{{ emp.last_name }}</td>
+        <td>{{ emp.middle_name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.position }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>{{ emp.phone }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
